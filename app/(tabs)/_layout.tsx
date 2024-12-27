@@ -1,3 +1,4 @@
+import Header from "@/components/Header/Header";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import React from "react";
@@ -8,7 +9,7 @@ export default function RootLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          header:()=><Header/>,
           tabBarIcon: ({ focused }) => (
             <FontAwesome
               name="home"
@@ -31,7 +32,19 @@ export default function RootLayout() {
           ),
         }}
       />
-      <Tabs.Screen name="profile" options={{ title: "Profile" }} />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome
+              name="user-circle"
+              size={24}
+              color={focused ? "purple" : "black"}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

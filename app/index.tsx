@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React from "react";
 import {
   Image,
@@ -10,15 +11,15 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import "../global.css";
-import { Link } from "expo-router";
 const index = () => {
+  const router = useRouter();
   return (
     <>
       <SafeAreaView className="flex-1 bg-white">
         <StatusBar />
         <ScrollView className="flex-1">
           {/* Hero Section */}
-          <View className="bg-blue-500 p-8 items-center">
+          <View className="bg-blue-500/55 p-8 items-center">
             <Image
               source={{
                 uri: "https://firebasestorage.googleapis.com/v0/b/rishibose1901-f5ff6.appspot.com/o/ace-x-high-resolution-logo-transparent.png?alt=media&token=582900cc-6269-432d-a03d-e2555e4f3f51",
@@ -32,10 +33,8 @@ const index = () => {
               Discover amazing features and boost your Project
             </Text>
 
-            <TouchableOpacity className="bg-white py-3 px-6 rounded-full">
-              <Link href="/(auths)/login">
+            <TouchableOpacity className="bg-white py-3 px-6 rounded-full" onPress={() => router.push("/(auths)/login")}>
                 <Text className="text-blue-500 font-semibold">Get Started</Text>
-              </Link>
             </TouchableOpacity>
           </View>
 
@@ -44,7 +43,7 @@ const index = () => {
             <Text className="text-2xl font-bold mb-6 text-center">
               Key Features
             </Text>
-            <View className="space-y-6">
+            <View className="my-4 space-x-4">
               <FeatureItem
                 icon="speedometer-outline"
                 title="Lightning Fast"
@@ -55,11 +54,6 @@ const index = () => {
                 title="Secure"
                 description="Your data is protected with state-of-the-art encryption"
               />
-              <FeatureItem
-                icon="sync-outline"
-                title="Sync Across Devices"
-                description="Access your content seamlessly on all your devices"
-              />
             </View>
           </View>
 
@@ -68,19 +62,17 @@ const index = () => {
             <Text className="text-2xl font-bold mb-4 text-center">
               Ready to dive in?
             </Text>
-            <TouchableOpacity className="bg-blue-500 py-3 px-6 rounded-full">
-              <Link href="/(auths)/register">
-                <Text className="text-white font-semibold">
-                  Create an Account
-                </Text>
-              </Link>
+            <TouchableOpacity
+              onPress={() => router.push("/(auths)/register")}
+            >
+              <Text className="text-blue-500 font-semibold">
+                Create an Account
+              </Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
       </SafeAreaView>
 
-      {/* <Link href={`/(tabs)`}>view</Link> */}
-      {/* <Link href={`/auth/login`}>view</Link> */}
     </>
   );
 };

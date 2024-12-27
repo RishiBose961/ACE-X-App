@@ -1,5 +1,5 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
+import { Text, TextInput, View } from "react-native";
 
 interface TextFeildProps {
   onChangeText: any;
@@ -21,9 +21,9 @@ export default function TextFeild({
 }: TextFeildProps) {
   return (
     <View>
-      <Text className="mb-2 font-bold">{title}</Text>
+      <Text className="mb-2 mt-2 font-bold">{title}</Text>
       <TextInput
-        className="bg-gray-100 px-4 ps-3 py-2 rounded-lg"
+        className="bg-gray-300 px-4 ps-3 py-2 rounded-lg mt-3"
         onChangeText={onChangeText}
         value={value}
         placeholder={placeholder}
@@ -35,4 +35,3 @@ export default function TextFeild({
   );
 }
 
-const styles = StyleSheet.create({});
